@@ -21,8 +21,8 @@ This project is a multi-page website that guides users through the world of AI. 
 - Chart.js for the AI growth graph
 
 ## references
--Google Gemini AI
--OpenAI ChatGpt
+- Google Gemini AI
+- OpenAI ChatGpt
 
 ## Getting Started
 
