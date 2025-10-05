@@ -20,6 +20,10 @@ This project is a multi-page website that guides users through the world of AI. 
 - Swiper.js for the movie recommender slider
 - Chart.js for the AI growth graph
 
+## references
+-Google Gemini AI
+-OpenAI ChatGpt
+
 ## Getting Started
 
 To get a local copy up and running, simply follow these steps:
