@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to AI Insights</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .spotlight-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .spotlight-card::before {
+            content: '';
+            position: absolute;
+            top: var(--y);
+            left: var(--x);
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--spotlight-color) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease-out;
+            pointer-events: none;
+        }
+        .spotlight-card:hover::before {
+            opacity: 1;
+        }
+        .spotlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="min-h-screen flex flex-col items-center justify-center p-6">
+        <header class="text-center mb-16">
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight">Welcome to AI Insights</h1>
+            <p class="mt-4 text-xl text-gray-300">Your personalized journey into the world of Artificial Intelligence starts here.</p>
+        </header>
+
+        <main class="w-full max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-10">Choose Your Path</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Card for Newbies -->
+                <a href="newbie.html" class="spotlight-card p-8 rounded-2xl shadow-lg" style="--spotlight-color: rgba(56, 189, 248, 0.4);">
+                    <h3 class="text-3xl font-bold text-cyan-300">I'm a Curious Newbie</h3>
+                    <p class="mt-4 text-gray-200">New to AI and Machine Learning? Start here for a simple, visual introduction to the core concepts and real-world applications.</p>
+                </a>
+
+                <!-- Card for Veterans -->
+                <a href="advanced.html" class="spotlight-card p-8 rounded-2xl shadow-lg" style="--spotlight-color: rgba(251, 191, 36, 0.4);">
+                    <h3 class="text-3xl font-bold text-amber-300">I'm an Experienced Veteran</h3>
+                    <p class="mt-4 text-gray-200">Already know the basics? Dive straight into the latest research, cutting-edge developments, and expert resources.</p>
+                </a>
+            </div>
+        </main>
+
+        <footer class="text-center py-8 mt-20">
+            <p class="text-white/70">Select the option that best describes you to begin.</p>
+        </footer>
+    </div>
+    <script>
+        document.querySelectorAll('.spotlight-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
+            });
+        });
+    </script>
+</body>
+</html>
+
